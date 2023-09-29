@@ -2,6 +2,7 @@ require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
+require 'sprockets/railtie'
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -21,6 +22,7 @@ Bundler.require(*Rails.groups)
 module Tala
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    
     config.load_defaults 7.0
 
     Rails.application.config.session_store :cookie_store, key: 'debt_manager_sess'
