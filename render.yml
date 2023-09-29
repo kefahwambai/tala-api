@@ -1,18 +1,18 @@
 databases:
-  - name: DebtManager
-    databaseName: debtmanager
-    user: debtmanager_user
+  - name: Tala
+    databaseName: tala
+    user: tala_user
 
 services:
   - type: web
-    name: DebtManager
+    name: TopaCash
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: debtmanager
+          name: tala
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
