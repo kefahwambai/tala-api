@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   resources :feedbacks
+  resources :password_resets, only: [:create, :edit, :update]
   resources :loans
   resources :clients
   resources :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resource  :session, only: [:show, :create, :destroy]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  
+  post '/signup', to: 'users#create'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/me', to: 'users#show' 
+  get '/api/session', to: 'sessions#show'
 end
