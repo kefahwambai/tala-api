@@ -1,3 +1,3 @@
 class FeedbackSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :message
+  attributes  :name, :message
 end

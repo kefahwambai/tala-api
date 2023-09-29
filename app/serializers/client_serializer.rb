@@ -1,3 +1,6 @@
 class ClientSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :phonenumber
+    
+  attributes :id, :name, :image_url
+  has_many :loans
+  
 end
