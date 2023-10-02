@@ -1,15 +1,10 @@
-# require "application_responder"
-
 class ApplicationController < ActionController::API
 
   include ActionController::Cookies  
-  include ActionController::RequestForgeryProtection
- 
+  include ActionController::RequestForgeryProtection 
  
   protect_from_forgery with: :exception
   before_action :snake_case_params, :attach_authenticity_token
-
-  # self.responder = ApplicationResponder
 
   def current_user
     return nil if session[:session_token].nil?
