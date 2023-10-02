@@ -21,7 +21,6 @@ class ClientsController < ApplicationController
   
 
   # POST /clients
-
   def create
     @client = Client.new(client_params)
 

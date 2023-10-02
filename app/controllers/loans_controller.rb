@@ -25,6 +25,8 @@ class LoansController < ApplicationController
     puts "Received params: #{params.inspect}"
     @loan = Loan.new(loan_params)
     puts "Loan Params: #{loan_params.inspect}"
+    client_id = params[:client_id]     
+    @loan.client_id = client_id
   
     if @loan.save
       render json: @loan, status: :created, location: @loan
