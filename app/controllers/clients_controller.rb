@@ -21,8 +21,13 @@ class ClientsController < ApplicationController
   
 
   # POST /clients
+
   def create
     @client = Client.new(client_params)
+
+    if params[:avatar].present? 
+      @client.avatar.attach(params[:avatar])
+    end
 
     if @client.save
       render json: @client, status: :created, location: @client
