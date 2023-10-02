@@ -18,13 +18,13 @@ Rails.application.configure do
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   config.require_master_key = true
-  config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' =>  "http://localhost:3000",
-    'Access-Control-Allow-Methods' => 'POST, PUT, DELETE, GET, OPTIONS',
-    'Access-Control-Allow-Headers' => 'Origin, Content-Type, Accept, Authorization, Token',
-    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(","),
-    'Access-Control-Allow-Credentials' => 'true'
-  }
+  # config.action_dispatch.default_headers = {
+  #   'Access-Control-Allow-Origin' =>  "http://localhost:3000",
+  #   'Access-Control-Allow-Methods' => 'POST, PUT, DELETE, GET, OPTIONS',
+  #   'Access-Control-Allow-Headers' => 'Origin, Content-Type, Accept, Authorization, Token',
+  #   'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(","),
+  #   'Access-Control-Allow-Credentials' => 'true'
+  # }
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
