@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_action :set_feedback, only: %i[ show update destroy ]
+  skip_before_action :verify_authenticity_token
 
   # GET /feedbacks
   def index
