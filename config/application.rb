@@ -31,14 +31,7 @@ module Tala
     # config/initializers/active_storage.rb
     # Set up Google Cloud Storage as the Active Storage service
     Rails.application.config.active_storage.service = :google
-    # Configure the GCS credentials
-    # Rails.application.config.active_storage.service_configs[:google] = {
-    #   service: "GCS",
-    #   project: "debtmanager-400315",
-    #   credentials: "gcs-credentials.json" # Replace with the path to your JSON key file
-    # }
-    
-
+  
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use ActionDispatch::Flash

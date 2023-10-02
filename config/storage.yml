@@ -6,5 +6,5 @@ local:
 google:
   service: GCS
   project: debtmanager-400315
-  credentials: <%= Rails.root.join("gcs.keyfile") %>
+  credentials: <%= Rails.root.join("gcs.keyfile.json") %>
   bucket: topacash<%= Rails.env %>
