@@ -12,5 +12,14 @@ class Client < ApplicationRecord
             nil 
         end
     end
+
+    def thumbnail
+        if image.attached?
+          image.variant(resize: '100x100').processed
+        else
+          nil
+        end
+      end
+      
     
 end

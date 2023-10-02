@@ -7,17 +7,6 @@ class ClientsController < ApplicationController
     render json: @clients
   end
 
-  # GET /clients/1
-  # def show
-  #   @client = Client.includes(:loans).find_by(id: params[:id])
-  
-  #   if @client.nil?
-  #     render json: { error: 'Client not found' }, status: :not_found
-  #     return
-  #   end
-  
-  #   render json: ClientSerializer.new(@client).serializable_hash[:data][:attributes]
-  # end
   def show
     @client = Client.find(params[:id])
     render json: @client
