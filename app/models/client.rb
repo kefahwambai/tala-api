@@ -4,13 +4,13 @@ class Client < ApplicationRecord
   has_many :loans
   has_one_attached :avatar
 
-  def avatar_url
-    if avatar.attached?
-      Rails.application.routes.url_helpers.url_for(avatar.variant(resize: '100x100', host: 'https://topacash.onrender.com'))
-    else
-      nil
-    end
-  end
+  # def avatar_url
+  #   if avatar.attached?
+  #     Rails.application.routes.url_helpers.url_for(avatar.variant(resize: '100x100', host: 'https://topacash.onrender.com'))
+  #   else
+  #     nil
+  #   end
+  # end
 
   def thumbnail
     if avatar.attached?
