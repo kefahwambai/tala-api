@@ -17,10 +17,6 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
 
-    if params[:avatar].present? 
-      @client.avatar.attach(params[:avatar])
-    end
-
     if @client.save
       render json: @client, status: :created, location: @client
     else
@@ -51,7 +47,7 @@ class ClientsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def client_params
-    params.permit(:name, :email, :phonenumber, :avatar)
+    params.permit(:name, :email, :phonenumber, :avatar, images: [])
   end
 end
   

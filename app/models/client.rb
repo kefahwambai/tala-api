@@ -1,16 +1,15 @@
 class Client < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
-
+  
   has_many :loans
   has_one_attached :avatar
+  has_many_attached :images
 
-  # def avatar_url
-  #   if avatar.attached?
-  #     Rails.application.routes.url_helpers.url_for(avatar.variant(resize: '100x100', host: 'https://topacash.onrender.com'))
-  #   else
-  #     nil
-  #   end
-  # end
+  validates :name, presence: true, uniqueness: true
+  validates :avatar, attached: true, dimension: { width: { min: 800, max: 2400 } },
+    content_type: [:png, :jpg, :jpeg], size: { less_than: 100.kilobytes , message: 'is not given between size' }
+
+  validates :images, attached: true, limit: { min: 1, max: 3 }, content_type: [:png, :jpg, :jpeg, :mp3]
+
 
   def thumbnail
     if avatar.attached?
