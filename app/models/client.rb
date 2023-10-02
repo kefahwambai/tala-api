@@ -5,13 +5,14 @@ class Client < ApplicationRecord
     has_one_attached :image
 
     def image_url
-        if image.attached?
-            Rails.application.routes.url_helpers.url_for(image)
-        else
-           
-            nil 
-        end
+      if image.attached?
+        Rails.application.routes.url_helpers.url_for(image, host: 'https://topacash.onrender.com')
+      else
+        nil
+      end
     end
+    
+    
 
     def thumbnail
         if image.attached?
