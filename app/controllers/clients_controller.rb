@@ -9,8 +9,15 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
-    render json: @client
+    if @user.avatar.attached?
+      render json: @user.as_json(only: %i[name]).merge(
+        avatar_path: url_for(@client.avatar)
+      )
+    else
+      render json: @client.errors, status: :unprocessable_entity
+    end
   end
+  
   
 
   # POST /clients
